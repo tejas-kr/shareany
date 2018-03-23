@@ -1,0 +1,700 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"navbar-fi",
+				"navbar-fixed-top \tBootstrap 3 Class"
+			],
+			[
+				"nav",
+				"navbar \tBootstrap 3 Class"
+			],
+			[
+				"container",
+				"container-fluid \tBootstrap 3 Class"
+			],
+			[
+				"con",
+				"con\tfunction __construct"
+			],
+			[
+				"student",
+				"studentID"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"all_",
+				"all_student_of_section"
+			],
+			[
+				"Aca",
+				"AcademicYearForApp"
+			],
+			[
+				"medical",
+				"medical_m"
+			],
+			[
+				"secion",
+				"sectionID"
+			],
+			[
+				"arra",
+				"array_chunk"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"sysadmin",
+				"sysadmin_names"
+			],
+			[
+				"stuednt",
+				"studentID"
+			],
+			[
+				"get_stu",
+				"get_stu_name"
+			],
+			[
+				"notice",
+				"notice_m"
+			],
+			[
+				"teacher",
+				"teachers"
+			],
+			[
+				"fei",
+				"fields"
+			],
+			[
+				"teach",
+				"teachers"
+			],
+			[
+				"classes",
+				"classesID"
+			],
+			[
+				"josn",
+				"json_encode"
+			],
+			[
+				"media_share",
+				"media_share_m"
+			],
+			[
+				"consol",
+				"console_log"
+			],
+			[
+				"fol",
+				"folder"
+			],
+			[
+				"class",
+				"classes"
+			],
+			[
+				"media",
+				"media"
+			],
+			[
+				"conso",
+				"console_log"
+			],
+			[
+				"teac",
+				"teachers"
+			],
+			[
+				"thi",
+				"this\t$(this)"
+			],
+			[
+				"mca",
+				"mcatID"
+			],
+			[
+				"media_shar",
+				"media_share_m"
+			],
+			[
+				"success",
+				"successfully"
+			],
+			[
+				"share_to",
+				"share_to_public"
+			],
+			[
+				"co",
+				"col-md-4"
+			],
+			[
+				"col",
+				"col-xs-6"
+			],
+			[
+				"share",
+				"share_to"
+			],
+			[
+				"parent",
+				"parent_id"
+			],
+			[
+				"baseu",
+				"base_url"
+			],
+			[
+				"change",
+				"change_hidden_input_value"
+			],
+			[
+				"sho",
+				"show_folder_content"
+			],
+			[
+				"thumb",
+				"thumbnail_gallery_html"
+			],
+			[
+				"asset",
+				"assets_kin_1"
+			],
+			[
+				"db_last",
+				"db_last\tCI - Active Record DB Helper Functions"
+			],
+			[
+				"mcat",
+				"mcategoryID"
+			],
+			[
+				"media_m",
+				"media_m"
+			],
+			[
+				"media_ca",
+				"media_category_m"
+			],
+			[
+				"sub",
+				"subdir_html"
+			],
+			[
+				"html",
+				"subdir_html"
+			],
+			[
+				"base",
+				"base_url"
+			],
+			[
+				"sha",
+				"share_table"
+			],
+			[
+				"pritn",
+				"print_r"
+			],
+			[
+				"base64_",
+				"base64_encode"
+			],
+			[
+				"sta",
+				"status"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"ptm",
+				"ptm_details"
+			],
+			[
+				"parent_",
+				"parent_teacher_meeting_m"
+			],
+			[
+				"get_all_ptm_req",
+				"get_all_ptm_requested_by_parent"
+			],
+			[
+				"get_all",
+				"get_all_ptm_requested_by_parent"
+			],
+			[
+				"colsm",
+				"col-sm-4"
+			],
+			[
+				"bas",
+				"base64_encode"
+			],
+			[
+				"chat",
+				"chat_room_link"
+			],
+			[
+				"way",
+				"way_of_communication"
+			],
+			[
+				"sche",
+				"schedule_time"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"count",
+				"count"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"system",
+				"systemadmin"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"studen",
+				"students"
+			],
+			[
+				"q",
+				"query"
+			],
+			[
+				"stude",
+				"students"
+			],
+			[
+				"stu",
+				"stuIDs"
+			],
+			[
+				"stud",
+				"stuIDs"
+			],
+			[
+				"section",
+				"sectionID"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"A",
+				"Academic_Year"
+			],
+			[
+				"secto",
+				"sectionIDs"
+			],
+			[
+				"eve",
+				"evedata"
+			],
+			[
+				"even",
+				"event_images"
+			],
+			[
+				"img",
+				"imgdata"
+			],
+			[
+				"room",
+				"room_nu"
+			],
+			[
+				"roo",
+				"room_nu"
+			],
+			[
+				"user",
+				"usertype"
+			],
+			[
+				"session",
+				"session_userdata\tCI - Session - Retrieving Session Data"
+			],
+			[
+				"sess",
+				"session_userdata\tCI - Session - Retrieving Session Data"
+			],
+			[
+				"sch",
+				"schedule_date"
+			],
+			[
+				"all",
+				"all_ptm"
+			],
+			[
+				"sectio",
+				"sectionID"
+			],
+			[
+				"a_",
+				"a_year_2"
+			],
+			[
+				"db_update",
+				"dbplus_update"
+			],
+			[
+				"sle",
+				"selected_students"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"se",
+				"selected_students"
+			],
+			[
+				"studne",
+				"studentIDs"
+			],
+			[
+				"print",
+				"print_r"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "shareany.sublime-project",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 162.0,
+		"last_filter": "loren",
+		"selected_items":
+		[
+			[
+				"loren",
+				"Add some Lorem Gibson"
+			],
+			[
+				"lore",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 605.0
+	},
+	"console":
+	{
+		"height": 162.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/var/www/html/shareany"
+	],
+	"file_history":
+	[
+		"/var/www/html/shareany/app/views/error/404error.php",
+		"/var/www/html/shareany/app/config/config.php",
+		"/var/www/html/shareany/app/config/database.php",
+		"/var/www/html/shareany/.htaccess",
+		"/var/www/html/shareany/app/config/autoload.php",
+		"/var/www/html/shareany/app/config/routes.php",
+		"/var/www/html/shareany/index.php",
+		"/tmp/fz3temp-1/index.php",
+		"/tmp/fz3temp-1/event.php",
+		"/tmp/fz3temp-1/notice_m.php",
+		"/tmp/fz3temp-1/notice.php",
+		"/home/django/cp/trash_medical",
+		"/tmp/fz3temp-1/medical.php",
+		"/tmp/fz3temp-1/medical_information.php",
+		"/tmp/fz3temp-1/single_notice_view.php",
+		"/tmp/fz3temp-1/search 2.php",
+		"/tmp/fz3temp-1/other_medi_docs.php",
+		"/tmp/fz3temp-1/prescriptions.php",
+		"/tmp/fz3temp-1/search.php",
+		"/tmp/fz3temp-1/room_visit.php",
+		"/tmp/fz3temp-1/student_vaccination.php",
+		"/tmp/fz3temp-1/search 3.php",
+		"/tmp/fz3temp-1/view.php",
+		"/tmp/fz3temp-1/medical_m.php",
+		"/tmp/fz3temp-1/event_view.php",
+		"/tmp/fz3temp-1/major_event.php",
+		"/tmp/fz3temp-1/gallery_folder_view.php",
+		"/tmp/fz3temp-1/media_category_m.php",
+		"/tmp/fz3temp-1/media.php",
+		"/tmp/fz3temp-1/page_menu.php",
+		"/home/django/5288068-awesome-wallpapers (copy).jpg",
+		"/home/django/crap/crap_gallery_skoolroom",
+		"/tmp/fz3temp-1/media_m.php",
+		"/tmp/fz3temp-1/media_share_m.php",
+		"/home/django/new_constants_skoolroom",
+		"/tmp/fz3temp-1/cheque_reort.php",
+		"/tmp/fz3temp-1/index 2.php",
+		"/tmp/fz3temp-1/index 3.php",
+		"/tmp/fz3temp-1/reportnew.php",
+		"/tmp/fz3temp-1/gallery_view.css",
+		"/tmp/fz3temp-1/style.css",
+		"/tmp/fz3temp-1/new45.php",
+		"/tmp/fz3temp-1/notice 2.php",
+		"/tmp/fz3temp-1/request_ptm_from_parent.php",
+		"/tmp/fz3temp-1/teacher_requested_ptms.php",
+		"/tmp/fz3temp-1/parent_teacher_meeting.php",
+		"/tmp/fz3temp-1/ptm_request_form_for_parent.php",
+		"/home/django/Desktop/gallery/thumbnail/index.html",
+		"/var/www/html/folder_view/scan.php",
+		"/var/www/html/folder_view/assets/css/styles.css",
+		"/tmp/fz3temp-1/parent_teacher_meeting_m.php",
+		"/tmp/fz3temp-1/major_event_m.php",
+		"/tmp/fz3temp-1/owl.carousel.min.js",
+		"/tmp/fz3temp-1/init.js",
+		"/tmp/fz3temp-1/lightgallery-all.js",
+		"/home/django/Desktop/untitled folder/hencework.com/theme/mateve/corporate_event/css/style.css",
+		"/tmp/fz3temp-1/accept_teacher_ptm_request.php",
+		"/tmp/fz3temp-1/video_chat.php",
+		"/var/www/html/newmvchatserver/bin/config.php",
+		"/var/www/html/Video-Call-App/ws/bin/server.php",
+		"/var/www/html/Ratchet-examples/composer.lock",
+		"/var/www/html/ratchet_learn/Chat.php",
+		"/var/www/html/ratchet_learn/chat-server.php",
+		"/var/www/html/ratchet_learn/composer.lock",
+		"/var/www/html/ratchet_learn/composer.json",
+		"/var/www/html/qqqq.php",
+		"/var/www/html/video-call-app/js/comm.js",
+		"/home/django/Desktop/Video-Call-App/index.html",
+		"/home/django/Desktop/p2p-video-chat-webrtc/index.js",
+		"/home/django/Desktop/p2p-video-chat-webrtc/package.json",
+		"/home/django/Desktop/p2p-video-chat-webrtc/index.html",
+		"/home/django/Desktop/letswritecode/p2p-video-chat-webrtc/README.md",
+		"/tmp/fz3temp-1/mail.php",
+		"/tmp/fz3temp-1/email_helper.php"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 130.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "shareany.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 44.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
