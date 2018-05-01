@@ -1,9 +1,20 @@
-# CodeIgniter 2
-Open Source PHP Framework (originally from EllisLab)
+# ShareAny
+An open source social networking site where you can share documents and images with your friends and peers for free.
 
-For more info, please refer to the user-guide at http://www.codeigniter.com/userguide2/  
-(also available within the download package for offline use)
+# Technology 
 
-**WARNING:** *CodeIgniter 2.x is no longer under development and only receives security patches until October 31st, 2015.
-Please update your installation to the latest CodeIgniter 3.x version available
-(upgrade instructions [here](http://www.codeigniter.com/userguide3/installation/upgrade_300.html)).*
+## Language
+* PHP 7.0
+
+## Framework
+* Codeigniter
+
+## Database
+* MySQL
+
+## Websockets Library
+* Ratchet
+
+___
+# Know the developer
+~ Tejas Jaiswal (https://github.com/tejas-kr)
