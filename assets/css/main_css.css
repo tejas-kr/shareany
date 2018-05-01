@@ -1,0 +1,11 @@
+.my-thumb {
+	max-height: 100px;
+	max-width: 100px;
+	min-height: 100px;
+	min-width: 100px;
+}
+
+.profile-posts-down {
+    margin-top: 10px;
+}
+

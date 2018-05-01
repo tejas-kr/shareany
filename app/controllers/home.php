@@ -12,7 +12,8 @@ class Home extends CI_Controller {
 	public function index() {
 		// echo "print";
 		$username = $this->session->userdata('username');
-		if($username != "") {
+		$user_id = $this->session->userdata('userID');
+		if($username != "" && isset($user_id)) {
 			$this->data['page_title'] = "Shareany | Home";
 			$this->data['sub_view'] = "home/index";
 			$this->load->view('common_view/common_view', $this->data);
@@ -67,6 +68,18 @@ class Home extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function validate_password() {
+		$pass = $this->input->post('pass');
+		$data = array();
+		$message = 0;
+		//WILL ASK
+		if(preg_match('/[a-zA-Z][0-9][#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', $pass)) {
+			$message = 1;
+		}
+		$data['message'] = $message; 
+		echo json_encode($data);
+	}
+
 	public function sign_in_user() {
 		$data = array();
 		$message = 0;
@@ -101,6 +114,44 @@ class Home extends CI_Controller {
 			}
 		}
 		echo json_encode($data);
+	}
+
+	public function profile($username) {
+		$username_sess = $this->session->userdata('username');
+		$user_id = $this->session->userdata('userID');
+		if($this->user_exists($username)) {
+			$user_data = $this->home_m->get_user_data($username);
+			// print_r($user_data); die();
+
+			//Get the followers data...
+			$follows_data = $this->home_m->get_follows_data($username_sess);
+			// print_r($follows_data); die();
+			$follows_arr = array();
+			foreach ($follows_data as $k => $v) {
+				array_push($follows_arr, $v->follow_user_id);
+			}
+			// print_r($follows_arr); die();
+
+			$this->data['follows_data'] = $follows_data;
+			$this->data['follows_arr'] = $follows_arr;
+			$this->data['user_data'] = $user_data;
+			$this->data['username'] = $username;
+			$this->data['page_title'] = "Shareany | Home";
+			$this->data['sub_view'] = "home/profile";
+			$this->load->view('common_view/common_view', $this->data);
+		} else {
+			$this->data['page_title'] = "Shareany | Sign up";
+			$this->data['sub_view'] = "error/404error";
+			$this->load->view('common_view/common_view', $this->data);
+		}
+	}
+
+	public function user_exists($username) {
+		if($this->home_m->user_exists($username)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function logout() {

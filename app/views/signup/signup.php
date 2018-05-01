@@ -41,8 +41,10 @@
 
 					<div style="margin-bottom: 25px" id="password_div" class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						<input id="login_password" type="password" class="form-control" name="password" placeholder="password">
+						<input id="login_password" type="password" class="form-control" onkeyup="password_valid(this.value)" name="password" placeholder="password">
 					</div>
+
+					<div id="check_password" class="alert alert-warning" style="display: none; margin-bottom: 25px"></div>
 
 					<div class="input-group" id="remember_me">
 						<div class="checkbox">
@@ -146,6 +148,27 @@
 				}
 			});	
 		}	
+	}
+
+	function password_valid(pass) {
+		if($("#signup_true").val() == 1) {
+			$.ajax({
+				url : "<?= base_url('home/validate_password') ?>",
+				type : "POST",
+				data : {
+					pass : pass
+				},
+				dataType : "JSON",
+				success : function(data) {
+					if(data.message == 1) {
+						$("#check_password").show();
+						$("#check_password").html('Password is not acceptable!');
+					} else {
+						$("#check_password").hide();
+					}
+				}
+			});
+		}
 	}
 
 	function signup_login_function() {

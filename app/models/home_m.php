@@ -46,6 +46,24 @@ class Home_m extends CI_Model {
 		return $data;
 	}
 
+	function user_exists($username) {
+		if(isset($this->db->select('users.username')->from('users')->where('username', $username)->get()->row()->username)) {
+			$username_found = $this->db->select('users.username')->from('users')->where('username', $username)->get()->row()->username;
+		}
+		if(isset($username_found)) {return true;}
+		else{return false;}
+	}
+
+	function get_user_data($username) {
+		return $this->db->get_where('users', array('username' => $username))->row();
+	}
+
+	function get_follows_data($username) {
+		$user_id = $this->db->get_where('users', array('username' => $username))->row()->userID;
+		
+		return $this->db->get_where('follows', array('user_id' => $user_id, 'active' => 1))->result();
+	}
+
 }
 
 /* End of file home_m.php */
