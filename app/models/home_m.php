@@ -60,8 +60,29 @@ class Home_m extends CI_Model {
 
 	function get_follows_data($username) {
 		$user_id = $this->db->get_where('users', array('username' => $username))->row()->userID;
-		
+
 		return $this->db->get_where('follows', array('user_id' => $user_id, 'active' => 1))->result();
+	}
+
+	function follow_user($userID) {
+		$data = [
+			"user_id" => $this->session->userdata('userID'),
+			"follow_user_id" => $userID
+		];
+		$this->db->insert('follows', $data);
+	}
+
+	function unfollow_user($userID) {
+		$this->db->where('user_id', $this->session->userdata('userID'));
+		$this->db->where('follow_user_id', $userID);
+		$this->db->delete('follows');
+	}
+
+
+
+	// TO DO
+	function get_shareed_posts($user_id) {
+		// TO DO
 	}
 
 }

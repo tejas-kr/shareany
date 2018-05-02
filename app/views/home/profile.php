@@ -31,15 +31,19 @@ print_r($follows_arr);*/ ?>
 			                	<?php if($username == $this->session->userdata('username')) { ?>
 			                	<button class="btn btn-default">Edit Profile</button>
 			                	<?php } else { ?>
-				                	<?php if(in_array($user_data->userID, $follows_arr)) {?>
-				                	<button class="btn btn-danger">Unfollow</button>
-				                	<?php } else { ?>
-				                	<button class="btn btn-success">Follow</button>
-				                	<?php } ?>
+
+													<div id="unfollow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? 'display: none;' : '' ) ?>">
+														<button class="btn btn-danger" onclick="unfollow_user(<?= $user_data->userID ?>)">Unfollow</button>
+													</div>
+
+													<div id="follow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? '' : 'display: none;' ) ?>">
+														<button class="btn btn-success" onclick="follow_user(<?= $user_data->userID ?>)">Follow</button>
+													</div>
+
 			                	<?php } ?>
 			                </div>
 			            </div>
-			            
+
 			        </div>
 
 			    </div>
@@ -56,9 +60,9 @@ print_r($follows_arr);*/ ?>
 				<div class="media-body">
 					<h4 class="media-haeading">Receta 1</h4>
 					<p class="text-right">By Francisco</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-					Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-					dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+					Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+					dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
 					Aliquam in felis sit amet augue.</p>
 					<ul class="list-inline list-unstyled">
 						<li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
@@ -76,3 +80,49 @@ print_r($follows_arr);*/ ?>
 		</div>
 	</div>
 </div>
+
+
+
+<script type="text/javascript">
+
+	function follow_user(userID) {
+		if(typeof userID !== "undefined") {
+			$.ajax({
+				url: "<?= base_url('home/follow_user') ?>",
+				type: "post",
+				data: {
+					userID: userID
+				},
+				dataType: "json",
+				success: function(data) {
+					// $("#follow_btn").html("");
+					// $("#follow_btn").html("<button class=\"btn btn-danger\" onclick=\"unfollow_user(<?= $user_data->userID ?>)\">Unfollow</button>");
+
+					$("#unfollow_btn").show();
+					$("#follow_btn").hide();
+
+				}
+			});
+		}
+	}
+	function unfollow_user(userID) {
+		if(typeof userID !== "undefined") {
+			$.ajax({
+				url: "<?= base_url('home/unfollow_user') ?>",
+				type: "post",
+				data: {
+					userID: userID
+				},
+				dataType: "json",
+				success: function(data) {
+					// $("#unfollow_btn").html("");
+					// $("#unfollow_btn").html("<button class=\"btn btn-success\" onclick=\"follow_user(<?= $user_data->userID ?>)\">Follow</button>");
+
+					$("#unfollow_btn").hide();
+					$("#follow_btn").show();
+				}
+			});
+		}
+	}
+
+</script>

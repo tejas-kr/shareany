@@ -14,6 +14,8 @@ class Home extends CI_Controller {
 		$username = $this->session->userdata('username');
 		$user_id = $this->session->userdata('userID');
 		if($username != "" && isset($user_id)) {
+			// $this->data['shared_posts'] = $this->home_m->get_shareed_posts($user_id);
+
 			$this->data['page_title'] = "Shareany | Home";
 			$this->data['sub_view'] = "home/index";
 			$this->load->view('common_view/common_view', $this->data);
@@ -42,7 +44,7 @@ class Home extends CI_Controller {
 				// set session
 				$session_array = array(
 					'username' => $arr['username'],
-					'userID' => $new_user->userID,	
+					'userID' => $new_user->userID,
 					'added_on' => $new_user->added_on
 				);
 				$this->session->set_userdata($session_array);
@@ -76,7 +78,7 @@ class Home extends CI_Controller {
 		if(preg_match('/[a-zA-Z][0-9][#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', $pass)) {
 			$message = 1;
 		}
-		$data['message'] = $message; 
+		$data['message'] = $message;
 		echo json_encode($data);
 	}
 
@@ -99,13 +101,13 @@ class Home extends CI_Controller {
 					$user_data = $this->home_m->get_all_userdata($log_in_user_data['userID']);
 					$session_array = array(
 						'username' => $user_data->username,
-						'userID' => $user_data->userID,	
+						'userID' => $user_data->userID,
 						'added_on' => $user_data->added_on
 					);
 					$this->session->set_userdata($session_array);
 
 					$message = 1;
-					$data['message'] = $message;	
+					$data['message'] = $message;
 				} else {
 					$message = 0;
 					$data['message'] = $message;
@@ -144,6 +146,18 @@ class Home extends CI_Controller {
 			$this->data['sub_view'] = "error/404error";
 			$this->load->view('common_view/common_view', $this->data);
 		}
+	}
+
+	public function follow_user() {
+		$userID = $this->input->post("userID");
+		$this->home_m->follow_user($userID);
+		echo 1;
+	}
+
+	public function unfollow_user() {
+		$userID = $this->input->post("userID");
+		$this->home_m->unfollow_user($userID);
+		echo 1;
 	}
 
 	public function user_exists($username) {
