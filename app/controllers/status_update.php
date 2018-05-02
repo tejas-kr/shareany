@@ -24,7 +24,7 @@ class Status_update extends CI_Controller {
 		{
 			$random = rand(1, 10000000).$_FILES['userfile']['name'];
 			$config['upload_path'] ="./uploads/userposts";
-			$config['allowed_types'] = '*';
+			$config['allowed_types'] = 'gif|jpg|png|pdf';
 			$config['file_name'] = time().$random;
 			$this->load->library('upload',$config);
 			$this->upload->initialize($config);

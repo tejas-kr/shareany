@@ -9,3 +9,14 @@
     margin-top: 10px;
 }
 
+.my-img {
+	max-height: 614px;
+	/* max-width: 614px; */
+	min-height: 100px;
+	cursor: zoom-in;
+}
+
+.pdf-img {
+	max-height: 100px;
+	min-height: 20px;
+}

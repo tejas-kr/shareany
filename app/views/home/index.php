@@ -1,9 +1,25 @@
+<link rel="stylesheet" href="<?= base_url('assets/css/pdf-view.css') ?>">
+<script type="text/javascript" src="<?= base_url('assets/js/pdf-view.js') ?>" ></script>
+
 <?php
 	echo "<!--";
 	print_r($this->session->userdata);
 	echo "-->";
 ?>
 
+
+<div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
+	 <div class="modal-dialog modal-lg" role="document">
+		 <div class="modal-content">
+			 <div class="modal-header">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			 </div>
+			 <div class="modal-body">
+				 <img src="" class="enlargeImageModalSource" style="width: 100%;">
+			 </div>
+		 </div>
+	 </div>
+</div>
 
 <?php $this->load->view('main_feed/status_update'); ?>
 
@@ -19,14 +35,24 @@
 		<div class="media-body">
 			<p class="text-right"><a href="<?= base_url('home/profile/') . '/' . $sp->username ?>"><?= $sp->username ?></a></p>
 			<p><?= $sp->post_content ?></p>
+
+			<?php if(isset($sp->post_attach) && $sp->post_attach != "") { ?>
+				<?php $info = new SplFIleInfo($sp->post_attach); if($info->getExtension() != "pdf") { ?>
+					<img class="media-object thumbnail my-img" src="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>" />
+				<?php } else { ?>
+					<a class="view-pdf" href="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>">
+						<img class="media-object thumbnail pdf-img" src="<?= base_url('/assets/img/pdf.png') ?>" />
+					</a>
+				<?php } ?>
+			<?php } ?>
+
 			<ul class="list-inline list-unstyled">
 				<li><span><i class="glyphicon glyphicon-calendar"></i> <?= date('d-m-Y', strtotime($sp->added_on)) ?> </span></li>
 				<li>|</li>
 					<span><i class="glyphicon glyphicon-comment" onclick="show_comments(<?= $sp->post_id ?>)"></i></span>
 				<li>|</li>
 				<li>
-					<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-					<span onclick="like()"><i class="fa fa-thumbs-up"></i></span>
+					<span onclick="like(<?= $sp->post_id ?>)"><i class="fa fa-thumbs-up"></i></span>
 				</li>
 			</ul>
 		</div>
@@ -36,10 +62,24 @@
 
 </div>
 
+<div id="dialog" style="display: none">
+</div>
 
+<script type="text/javascript">
+	$(function() {
+		$('img').on('click', function() {
+			$('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+			$('#enlargeImageModal').modal('show');
+		});
+	});
+</script>
 <script type="text/javascript">
 
 function show_comments(post_id) {
+	console.log(post_id);
+}
+
+function like(post_id) {
 	console.log(post_id);
 }
 
