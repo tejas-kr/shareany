@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 			$shared_posts = $this->home_m->get_shareed_posts($user_id);
 			if($shared_posts != 0) {
 				$this->data['shared_posts'] = $shared_posts;
-				// echo "<pre>";print_r($shared_posts); die();				
+				// echo "<pre>";print_r($shared_posts); die();
 			}
 
 			$this->data['page_title'] = "Shareany | Home";
@@ -137,6 +137,13 @@ class Home extends CI_Controller {
 				array_push($follows_arr, $v->follow_user_id);
 			}
 			// print_r($follows_arr); die();
+
+			//Get user posts
+			$user_posts = $this->home_m->get_user_posts($username);
+			if (isset($user_posts) && !empty($user_posts)) {
+				$this->data['user_posts'] = $user_posts;
+			}
+			// print_r($user_posts); die();
 
 			$this->data['follows_data'] = $follows_data;
 			$this->data['follows_arr'] = $follows_arr;

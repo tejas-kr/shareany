@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="<?= base_url('assets/css/pdf-view.css') ?>">
-<script type="text/javascript" src="<?= base_url('assets/js/pdf-view.js') ?>" ></script>
 
 <?php
 	echo "<!--";
@@ -26,36 +24,39 @@
 <div class="container">
 
 <?php if(isset($shared_posts)) { foreach ($shared_posts as $sp) { ?>
-	<div class="well">
+	<div id="post_<?= $sp->post_id ?>" class="well">
 		<div class="media">
-		<!-- user image -->
-		<a class="pull-left" href="<?= base_url('home/profile/') . '/' . $sp->username ?>">
-			<img class="media-object thumbnail my-thumb" src="<?= ( ($sp->user_image != 'no_image' && isset($sp->user_image)) ? base_url('assets/uploads/user_dp') . '/' . $sp->user_image : base_url('assets/img/default-user-image.png') ) ?>">
-		</a>
-		<div class="media-body">
-			<p class="text-right"><a href="<?= base_url('home/profile/') . '/' . $sp->username ?>"><?= $sp->username ?></a></p>
-			<p><?= $sp->post_content ?></p>
+			<a class="pull-right" title="Delete" href="javascript:void(0)" onclick="delete_post(<?= $sp->post_id ?>)">
+				<i class="fa fa-trash-o"></i>
+			</a>
+			<!-- user image -->
+			<a class="pull-left" href="<?= base_url('home/profile/') . '/' . $sp->username ?>">
+				<img class="media-object thumbnail my-thumb" src="<?= ( ($sp->user_image != 'no_image' && isset($sp->user_image)) ? base_url('assets/uploads/user_dp') . '/' . $sp->user_image : base_url('assets/img/default-user-image.png') ) ?>">
+			</a>
+			<div class="media-body">
+				<p class="text-right"><a href="<?= base_url('home/profile/') . '/' . $sp->username ?>"><?= $sp->username ?></a></p>
+				<p><?= $sp->post_content ?></p>
 
-			<?php if(isset($sp->post_attach) && $sp->post_attach != "") { ?>
-				<?php $info = new SplFIleInfo($sp->post_attach); if($info->getExtension() != "pdf") { ?>
-					<img class="media-object thumbnail my-img" src="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>" />
-				<?php } else { ?>
-					<a class="view-pdf" href="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>">
-						<img class="media-object thumbnail pdf-img" src="<?= base_url('/assets/img/pdf.png') ?>" />
-					</a>
+				<?php if(isset($sp->post_attach) && $sp->post_attach != "") { ?>
+					<?php $info = new SplFIleInfo($sp->post_attach); if($info->getExtension() != "pdf") { ?>
+						<img class="media-object thumbnail my-img" src="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>" />
+					<?php } else { ?>
+						<a class="view-pdf" href="<?= base_url('/uploads/userposts/') . '/' . $sp->post_attach ?>">
+							<img class="media-object thumbnail pdf-img" src="<?= base_url('/assets/img/pdf.png') ?>" />
+						</a>
+					<?php } ?>
 				<?php } ?>
-			<?php } ?>
 
-			<ul class="list-inline list-unstyled">
-				<li><span><i class="glyphicon glyphicon-calendar"></i> <?= date('d-m-Y', strtotime($sp->added_on)) ?> </span></li>
-				<li>|</li>
-					<span><i class="glyphicon glyphicon-comment" onclick="show_comments(<?= $sp->post_id ?>)"></i></span>
-				<li>|</li>
-				<li>
-					<span onclick="like(<?= $sp->post_id ?>)"><i class="fa fa-thumbs-up"></i></span>
-				</li>
-			</ul>
-		</div>
+				<ul class="list-inline list-unstyled">
+					<li><span><i class="glyphicon glyphicon-calendar"></i> <?= date('d-m-Y', strtotime($sp->added_on)) ?> </span></li>
+					<li>|</li>
+						<span><i class="glyphicon glyphicon-comment" onclick="show_comments(<?= $sp->post_id ?>)"></i></span>
+					<li>|</li>
+					<li>
+						<span onclick="like(<?= $sp->post_id ?>)"><i class="fa fa-thumbs-up"></i></span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 <?php } } ?>
@@ -73,6 +74,40 @@
 		});
 	});
 </script>
+
+<script type="text/javascript">
+	function delete_post(post_id) {
+		swal({
+		  title: "Delete Post!",
+		  text: "Do you really want to delete this post!",
+		  type: "warning",
+		  showCancelButton: true,
+		  closeOnConfirm: false,
+		  showLoaderOnConfirm: true
+		}, function () {
+		  setTimeout(function () {
+
+				$.ajax({
+					url: "<?= base_url('status_update/delete_post') ?>",
+					type: "post",
+					data: {
+						post_id: post_id
+					},
+					dataType: "json",
+					success: function(data) {
+						if (data == 1) {
+							$("#post_" + post_id).remove();
+						}
+					}
+				});
+
+		    swal("Ajax request finished!");
+		  }, 2000);
+		});
+
+	}
+</script>
+
 <script type="text/javascript">
 
 function show_comments(post_id) {

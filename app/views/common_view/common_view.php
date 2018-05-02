@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="<?= base_url('assets/jq_plugins/jquery-comments/js/jquery-comments.js') ?>"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-te/1.4.0/jquery-te.js"></script>
 	<script type="text/javascript" src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
-	
+
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/jq_plugins/jquery-comments/css/jquery-comments.css') ?>">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-te/1.4.0/jquery-te.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,6 +23,11 @@
 	<!-- include a theme -->
 	<link rel="stylesheet" href="<?= base_url('assets/jq_plugins/alertifyjs/css/themes/default.min.css') ?>" />
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+
+	<link rel="stylesheet" href="<?= base_url('assets/css/pdf-view.css') ?>">
+	<script type="text/javascript" src="<?= base_url('assets/js/pdf-view.js') ?>" ></script>
 
 	<style type="text/css">
 		body { padding-top: 70px; }

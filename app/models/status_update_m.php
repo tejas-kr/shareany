@@ -8,7 +8,12 @@ class Status_update_m extends CI_Model {
 		$this->db->insert('posts', $status_arr);
 		return true;
 	}
-	
+
+	function delete_post($post_id) {
+		$this->db->where('post_id', $post_id);
+		$this->db->delete('posts');
+	}
+
 
 }
 

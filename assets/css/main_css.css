@@ -20,3 +20,13 @@
 	max-height: 100px;
 	min-height: 20px;
 }
+
+.emp_head {
+	text-align: center;
+	height: 500px;
+	padding: 200px;
+}
+
+.emp_head a {
+	color: black;
+}

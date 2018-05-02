@@ -79,6 +79,8 @@
 					if(data.status_flag == 1) {
 						alertify.success('Post Shared!');
 						$('form[name="add_stuff_form"]')[0].reset();
+						$('.jqte_editor').html('');
+						location.reload();
 					} else {
 						alertify.error('Error occured while sharing post!!!');
 					}

@@ -52,32 +52,51 @@ print_r($follows_arr);*/ ?>
 		</div>
 	</div>
 	<div class="col-sm-9 profile-posts-down">
-		<div class="well">
-			<div class="media">
-				<a class="pull-left" href="#">
-					<img class="media-object thumbnail my-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/31/Ice_Cream_dessert_02.jpg">
-				</a>
-				<div class="media-body">
-					<h4 class="media-haeading">Receta 1</h4>
-					<p class="text-right">By Francisco</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-					Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-					dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-					Aliquam in felis sit amet augue.</p>
-					<ul class="list-inline list-unstyled">
-						<li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-						<li>|</li>
-						<span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+		<?php if(isset($user_posts)) { foreach ($user_posts as $up) { ?>
+			<div id="post_<?= $up->post_id ?>" class="well">
+				<div class="media">
+					<a class="pull-right" title="Delete" href="javascript:void(0)" onclick="delete_post(<?= $up->post_id ?>)">
+						<i class="fa fa-trash-o"></i>
+					</a>
+					<!-- user image -->
+					<a class="pull-left" href="<?= base_url('home/profile/') . '/' . $up->username ?>">
+						<img class="media-object thumbnail my-thumb" src="<?= ( ($up->user_image != 'no_image' && isset($up->user_image)) ? base_url('assets/uploads/user_dp') . '/' . $up->user_image : base_url('assets/img/default-user-image.png') ) ?>">
+					</a>
+					<div class="media-body">
+						<p class="text-right"><a href="<?= base_url('home/profile/') . '/' . $up->username ?>"><?= $up->username ?></a></p>
+						<p><?= $up->post_content ?></p>
 
-						<li>|</li>
-						<li>
-							<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-							<span><i class="fa fa-thumbs-up"></i></span>
-						</li>
-					</ul>
+						<?php if(isset($up->post_attach) && $up->post_attach != "") { ?>
+							<?php $info = new SplFIleInfo($up->post_attach); if($info->getExtension() != "pdf") { ?>
+								<img class="media-object thumbnail my-img" src="<?= base_url('/uploads/userposts/') . '/' . $up->post_attach ?>" />
+							<?php } else { ?>
+								<a class="view-pdf" href="<?= base_url('/uploads/userposts/') . '/' . $up->post_attach ?>">
+									<img class="media-object thumbnail pdf-img" src="<?= base_url('/assets/img/pdf.png') ?>" />
+								</a>
+							<?php } ?>
+						<?php } ?>
+
+						<ul class="list-inline list-unstyled">
+							<li><span><i class="glyphicon glyphicon-calendar"></i> <?= date('d-m-Y', strtotime($up->added_on)) ?> </span></li>
+							<li>|</li>
+								<span><i class="glyphicon glyphicon-comment" onclick="show_comments(<?= $up->post_id ?>)"></i></span>
+							<li>|</li>
+							<li>
+								<span onclick="like(<?= $up->post_id ?>)"><i class="fa fa-thumbs-up"></i></span>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php } } else { ?>
+			<div class="emp_head">
+				<?php if($username == $this->session->userdata('username')) { ?>
+				<a href="<?= base_url('home/') ?>"><h1>Add your first post...</h1></a>
+			<?php } else { ?>
+				<h1>Nothing to see here...</h1>
+			<?php } ?>
+			</div>
+		<?php } ?>
 	</div>
 </div>
 

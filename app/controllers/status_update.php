@@ -67,6 +67,12 @@ class Status_update extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	function delete_post() {
+		$post_id = $this->input->post('post_id');
+		$this->status_update_m->delete_post($post_id);
+		echo 1;
+	}
+
 }
 
 /* End of file status_update.php */

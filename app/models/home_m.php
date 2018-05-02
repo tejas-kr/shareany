@@ -100,6 +100,15 @@ class Home_m extends CI_Model {
 		}
 	}
 
+	function get_user_posts($username) {
+		$this->db->select('posts.*, users.username, users.full_name, users.user_image');
+		$this->db->from('users');
+		$this->db->join('posts', 'users.userID = posts.user_id', 'right');
+		$this->db->where('users.username', $username);
+		$q = $this->db->get();
+		return $q->result();
+	}
+
 }
 
 /* End of file home_m.php */
