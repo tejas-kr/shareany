@@ -10,7 +10,10 @@ class Status_update_m extends CI_Model {
 	}
 
 	function delete_post($post_id) {
+		$user_id = $this->session->userdata('userID');
+
 		$this->db->where('post_id', $post_id);
+		$this->db->where('user_id', $user_id);
 		$this->db->delete('posts');
 	}
 

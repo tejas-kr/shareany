@@ -26,7 +26,7 @@
 <?php if(isset($shared_posts)) { foreach ($shared_posts as $sp) { ?>
 	<div id="post_<?= $sp->post_id ?>" class="well">
 		<div class="media">
-			<a class="pull-right" title="Delete" href="javascript:void(0)" onclick="delete_post(<?= $sp->post_id ?>)">
+			<a class="pull-right" title="Delete" style="<?= ( ($username == $sp->username) ? '' : 'display:none' ) ?>" href="javascript:void(0)" onclick="delete_post(<?= ( ($username == $sp->username) ? $sp->post_id : '' ) ?>)">
 				<i class="fa fa-trash-o"></i>
 			</a>
 			<!-- user image -->

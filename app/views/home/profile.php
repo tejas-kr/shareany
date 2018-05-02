@@ -29,7 +29,7 @@ print_r($follows_arr);*/ ?>
 			                <?php } ?>
 			                <div class="row">
 			                	<?php if($username == $this->session->userdata('username')) { ?>
-			                	<button class="btn btn-default">Edit Profile</button>
+			                	<button class="btn btn-default" onclick="edit_profile(<?= $username ?>)">Edit Profile</button>
 			                	<?php } else { ?>
 
 													<div id="unfollow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? '' : 'display: none;' ) ?>">
@@ -55,7 +55,7 @@ print_r($follows_arr);*/ ?>
 		<?php if(isset($user_posts)) { foreach ($user_posts as $up) { ?>
 			<div id="post_<?= $up->post_id ?>" class="well">
 				<div class="media">
-					<a class="pull-right" title="Delete" href="javascript:void(0)" onclick="delete_post(<?= $up->post_id ?>)">
+					<a class="pull-right" title="Delete" style="<?= ( ($username == $this->session->userdata('username')) ? '' : 'display:none' ) ?>" href="javascript:void(0)" onclick="delete_post(<?= ( ($username == $this->session->userdata('username')) ? $up->post_id : '' ) ?>)">
 						<i class="fa fa-trash-o"></i>
 					</a>
 					<!-- user image -->
@@ -101,7 +101,50 @@ print_r($follows_arr);*/ ?>
 </div>
 
 
+<div id="dialog" style="display: none">
+</div>
 
+<script type="text/javascript">
+	$(function() {
+		$('img').on('click', function() {
+			$('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+			$('#enlargeImageModal').modal('show');
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	function delete_post(post_id) {
+		swal({
+		  title: "Delete Post!",
+		  text: "Do you really want to delete this post!",
+		  type: "warning",
+		  showCancelButton: true,
+		  closeOnConfirm: false,
+		  showLoaderOnConfirm: true
+		}, function () {
+		  setTimeout(function () {
+
+				$.ajax({
+					url: "<?= base_url('status_update/delete_post') ?>",
+					type: "post",
+					data: {
+						post_id: post_id
+					},
+					dataType: "json",
+					success: function(data) {
+						if (data == 1) {
+							$("#post_" + post_id).remove();
+						}
+					}
+				});
+
+		    swal("Ajax request finished!");
+		  }, 2000);
+		});
+
+	}
+</script>
 <script type="text/javascript">
 
 	function follow_user(userID) {
@@ -143,5 +186,21 @@ print_r($follows_arr);*/ ?>
 			});
 		}
 	}
+	function edit_profile(username) {
+		if(typeof username !== "undefined") {
+			$.ajax({
+				url: "<?= base_url('profile/load_edit_profile_view') ?>",
+				type: "post",
+				data: {
+					username: username
+				},
+				dataType: "json",
+				success: function(data) {
+					
+				}
+			});
+		}
+	}
+
 
 </script>

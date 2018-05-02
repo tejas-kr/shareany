@@ -19,6 +19,7 @@ class Home extends CI_Controller {
 				$this->data['shared_posts'] = $shared_posts;
 				// echo "<pre>";print_r($shared_posts); die();
 			}
+			$this->data['username'] = $username;
 
 			$this->data['page_title'] = "Shareany | Home";
 			$this->data['sub_view'] = "home/index";
