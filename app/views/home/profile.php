@@ -32,11 +32,11 @@ print_r($follows_arr);*/ ?>
 			                	<button class="btn btn-default">Edit Profile</button>
 			                	<?php } else { ?>
 
-													<div id="unfollow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? 'display: none;' : '' ) ?>">
+													<div id="unfollow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? '' : 'display: none;' ) ?>">
 														<button class="btn btn-danger" onclick="unfollow_user(<?= $user_data->userID ?>)">Unfollow</button>
 													</div>
 
-													<div id="follow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? '' : 'display: none;' ) ?>">
+													<div id="follow_btn" style="<?= ( (in_array($user_data->userID, $follows_arr)) ? 'display: none;' : '' ) ?>">
 														<button class="btn btn-success" onclick="follow_user(<?= $user_data->userID ?>)">Follow</button>
 													</div>
 

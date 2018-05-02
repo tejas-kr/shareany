@@ -15,17 +15,16 @@ class Status_update extends CI_Controller {
 	}
 
 	public function save_status_update() {
-		$post_title = $this->input->post('add_post_title');
 		$post_description = $this->input->post('add_description');
 
 		// FILES UPLOAD - MOST HECTIC THING...
 		$new_file = "defualt.png";
 
 		if(!empty($_FILES['userfile']['name']))
-		{    
+		{
 			$random = rand(1, 10000000).$_FILES['userfile']['name'];
 			$config['upload_path'] ="./uploads/userposts";
-			$config['allowed_types'] = '*';       
+			$config['allowed_types'] = '*';
 			$config['file_name'] = time().$random;
 			$this->load->library('upload',$config);
 			$this->upload->initialize($config);
@@ -36,22 +35,21 @@ class Status_update extends CI_Controller {
 				// echo $picture; die();
 			}
 			else
-			{ 
+			{
 				$picture = '';
 			}
 		}
 		else
-		{ 
+		{
 			// var_dump($_FILES['image']['name']);
 			$picture = '';
 		}
 		$attachment = /*"./uploads/attach/" . */$picture;
 
-		
-		
+
+
 		$save_status_update_arr = array(
 			"user_id" => $this->session->userdata('userID'),
-			"post_title" => $post_title,
 			"post_content" => $post_description,
 			"post_attach" => $attachment
 		);
@@ -60,7 +58,7 @@ class Status_update extends CI_Controller {
 		if ($this->status_update_m->save_status_update($save_status_update_arr)) {
 			$status_flag = 1;
 		}
-		
+
 		// $html_data have to write...
 
 		$data = array();

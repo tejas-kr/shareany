@@ -9,7 +9,7 @@
 <div class="container">
   <div class="well">
       <div class="media">
-      	
+
   		<div class="media-body">
     		<h4 class="media-haeading">Share Your Stuff</h4>
 
@@ -41,7 +41,7 @@
        </div>
     </div>
   </div>
-   
+
 </div>
 
 
@@ -53,17 +53,17 @@
 </script>
 
 <script type="text/javascript">
-	
+
 	$('form[name="add_stuff_form"]').submit(function(e) {
 
 		e.preventDefault();
 
-		var post_title = $("#add_post_title").val();
+		// var post_title = $("#add_post_title").val();
 
 		var post_content = $("#add_description").val();
 		// console.log(post_content);
 
-		if(post_title == "" || post_content == "") {
+		if(post_content == "") {
 			alertify.error('Enter post title and description');
 		} else {
 
@@ -78,13 +78,13 @@
 				success: function(data) {
 					if(data.status_flag == 1) {
 						alertify.success('Post Shared!');
-						$('form[name="add_stuff_form"]').reset();
+						$('form[name="add_stuff_form"]')[0].reset();
 					} else {
 						alertify.error('Error occured while sharing post!!!');
 					}
 				}
 			});
-			
+
 		}
 
 	});

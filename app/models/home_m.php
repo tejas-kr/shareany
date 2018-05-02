@@ -78,11 +78,26 @@ class Home_m extends CI_Model {
 		$this->db->delete('follows');
 	}
 
-
-
-	// TO DO
 	function get_shareed_posts($user_id) {
-		// TO DO
+		$follows = $this->db->get_where('follows', ['user_id' => $user_id])->result();
+		$follows_users = [];
+		foreach ($follows as $f) {
+			if (isset($f->follow_user_id)) {
+				array_push($follows_users, $f->follow_user_id);
+			}
+		}
+		if(!empty($follows_users)) {
+			$this->db->select('posts.*, users.username, users.full_name, users.user_image');
+			$this->db->from('posts');
+			$this->db->join('users', 'posts.user_id = users.userID', 'left');
+			$this->db->where_in('user_id', $follows_users);
+			$this->db->or_where('posts.user_id', $user_id);
+			$this->db->order_by('post_id', 'desc');
+			$q = $this->db->get();
+			return $q->result();
+		} else {
+			return 0;
+		}
 	}
 
 }

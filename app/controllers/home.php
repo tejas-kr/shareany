@@ -14,7 +14,11 @@ class Home extends CI_Controller {
 		$username = $this->session->userdata('username');
 		$user_id = $this->session->userdata('userID');
 		if($username != "" && isset($user_id)) {
-			// $this->data['shared_posts'] = $this->home_m->get_shareed_posts($user_id);
+			$shared_posts = $this->home_m->get_shareed_posts($user_id);
+			if($shared_posts != 0) {
+				$this->data['shared_posts'] = $shared_posts;
+				// echo "<pre>";print_r($shared_posts); die();				
+			}
 
 			$this->data['page_title'] = "Shareany | Home";
 			$this->data['sub_view'] = "home/index";
